@@ -45,7 +45,7 @@ export default function Navbar() {
 
                     {/* <!-- dropdown --> */}
                     <li className="relative">
-                        <button className="px-4 py-2 font-medium text-white rounded-md hover:bg-blue-800" onFocus={handleSetDropdownOpen} onBlur={handleSetDropdownOpen}>
+                        <button className="px-4 py-2 font-medium text-white rounded-md hover:bg-blue-800" onClick={handleSetDropdownOpen}>
                             Dropdown
                         </button>
                         {/* <!-- dropdown menu --> */}
