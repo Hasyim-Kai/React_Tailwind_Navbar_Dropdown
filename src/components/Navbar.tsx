@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
+import NavbarItemDropdown from './NavbarItemDropdown';
 // import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -10,9 +11,6 @@ export default function Navbar() {
     const [isMobileNavOpen, setMobileNavOpen] = useState(false);
     function handleSetMobileNavOpen() { setMobileNavOpen(!isMobileNavOpen) };
     // function handleNavChangePage() { setMobileNavOpen(false) };
-
-    const [isDropdownOpen, setDropdownOpen] = useState(false);
-    function handleSetDropdownOpen() { setDropdownOpen(!isDropdownOpen) };
 
     return <nav className="bg-blue-700 shadow-md fixed w-full z-50">
         {/* <!-- container --> */}
@@ -44,23 +42,7 @@ export default function Navbar() {
                     </li>
 
                     {/* <!-- dropdown --> */}
-                    <li className="relative">
-                        <button className="px-4 py-2 font-medium text-white rounded-md hover:bg-blue-800" onClick={handleSetDropdownOpen}>
-                            Dropdown
-                        </button>
-                        {/* <!-- dropdown menu --> */}
-                        <div className={`right-0 p-2 mt-1 bg-white rounded-md shadow-xl lg:absolute ${isDropdownOpen ? 'flex flex-col' : 'hidden'}`}>
-                            <ul className="space-y-2 lg:w-48">
-                                <li>
-                                    <a href="#" className="flex p-2 font-medium text-gray-600 rounded-md hover:bg-gray-100 hover:text-black">Categories</a>
-                                </li>
-                                <li>
-                                    <a href="#" className="flex p-2 font-medium text-gray-600 rounded-md hover:bg-gray-100 hover:text-black">Brand</a>
-                                </li>
-                            </ul>
-                        </div>
-                    {/* <!-- dropdown menu --> */}
-                </li>
+                    <NavbarItemDropdown />
                 {/* <!-- dropdown --> */}
             </ul>
         </div>
