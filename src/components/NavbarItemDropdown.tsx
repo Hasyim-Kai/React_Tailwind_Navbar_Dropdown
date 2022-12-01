@@ -1,31 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 const NavbarItemDropdown = () => {
-    const wrapperRef = useRef<any>(null);
-    const [isDropdownOpen, setDropdownOpen] = useState(false);
-    function handleSetDropdownOpen() { setDropdownOpen(!isDropdownOpen); }
-
-    useEffect(() => {
-        function handleClickOutside(event: any) {
-            if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-                setDropdownOpen(false);
-            }
-        }
-        // Bind the event listener
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            // Unbind the event listener on clean up
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [wrapperRef]);
+    const ref = useRef<HTMLDivElement>(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const handleChange = () => { setIsOpen((state) => !state) }
+    const closePopUp = () => { setIsOpen(false) }
+    useClickOutside(isOpen, ref, closePopUp);
 
     return (
-        <div className="relative" ref={wrapperRef}>
-            <button className="text-white mt-2" onClick={handleSetDropdownOpen}>Dropdown</button>
+        <div className="relative" ref={ref}>
+            <button className="text-white mt-2" onClick={handleChange}>Dropdown</button>
 
-            {/* <!-- dropdown menu --> */}
-            <div className={`absolute -right-7 p-5 mt-1 bg-white rounded-xl border shadow-xl 
-                ${isDropdownOpen ? "flex flex-col" : "hidden"} max-h-96 overflow-y-scroll z-50`}>
+            <div className={`dropdown ${isOpen ? "show" : "hide"}`}>
                 <ul className="lg:w-96 w-72">
                     <li>
                         <p>Item</p>

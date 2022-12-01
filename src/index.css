@@ -24,3 +24,35 @@ body {
   border-radius: 30px;
   border: 3px solid white;
 }
+
+
+
+.dropdown {
+  /* display: flex;
+  flex-direction: column; */
+  background: white;
+  margin-top: 5px; 
+  position: absolute;
+  right: 0rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-height: 25rem;
+  overflow-y: scroll;
+  z-index: 51;
+  transition: all ease-in 0.2s;
+  box-shadow: 2px 13px 34px 0px rgba(168,168,168,0.55);
+  -webkit-box-shadow: 2px 13px 34px 0px rgba(168,168,168,0.55);
+  -moz-box-shadow: 2px 13px 34px 0px rgba(168,168,168,0.55);
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-7px);
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0px);
+}
