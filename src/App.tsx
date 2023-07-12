@@ -1,13 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Navbar from './components/Navbar';
+import NavbarPureCss from './components/NavbarPureCss';
 
 export default function App() {
 
   return (
     <div className='font-poppins'>
       <BrowserRouter >
-        <Navbar/>
+        {/* <Navbar/> */}
+        <NavbarPureCss/>
         <Routes>
           <Route path='*' element={<NotFound />} />
           <Route path="/" element={<Home />} />

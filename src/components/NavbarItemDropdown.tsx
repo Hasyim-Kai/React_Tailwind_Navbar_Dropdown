@@ -10,7 +10,7 @@ const NavbarItemDropdown = () => {
 
     return (
         <div className="relative" ref={ref}>
-            <button className="text-white mt-2" onClick={handleChange}>Dropdown</button>
+            <button className="" onClick={handleChange}>Dropdown</button>
 
             <div className={`dropdown ${isOpen ? "show" : "hide"}`}>
                 <ul className="lg:w-96 w-72">
